@@ -1,0 +1,79 @@
+body {
+    /* background: #ffdd00 linear-gradient(15deg, #ffdd00, #eead60); background-repeat: no-repeat;*/
+    background: #000000 url(/media/bk.png) 0px 0px;
+    color: white;
+}
+html {
+    height: 100%;
+}
+h1 {
+    text-align:center;
+    font-weight: normal;
+    margin: 30px 20px;
+    color: #fff !important;
+}
+
+@media(max-width: 640px) {
+    h1 {
+        margin: 15px;
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 24px !important;
+        line-height: 1em !important;
+    }
+}
+
+.App a  { color: white; }
+.App a:hover  { color: #ff9900; }
+a  { color: white; font-weight: bold; }
+a:visited  { color: white; }
+
+table.table thead th {
+    background: #191919;
+    color: white;
+}
+table.table {
+    background: #ffffff;
+    color: #000;
+    border-top: 5px #ff9206 solid;
+    border-left: 1px transparent solid;
+    border-right: 1px transparent solid;
+    border-bottom: 1px #eaeaea solid;
+    margin: 0px auto;
+}
+table.table.rating {
+    max-width: 380px;
+}
+
+.map-label {
+    max-width: 380px;
+    margin: 0px auto;
+    text-align: right;
+    font-size: 12px;
+}
+
+a.btn-lg.btn-inverse {
+    display: block;
+    width: 80%;
+    margin: 15px 10%;
+    cursor: pointer;
+    border: 1px #888 solid;
+    border-radius: 5px;
+    background: #000000;
+    color: white;
+    outline: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}
+a.btn-lg.btn-inverse:hover {
+    border-color: #ff9900;
+}
+
+.rrt-text {
+    font-size: 11px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -1,0 +1,120 @@
+h3 { text-align: center; padding: 20px 0px; }
+nav {
+    background: #000;
+    border-bottom: 7px #ff9900 solid;
+    height: 105px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    left: 215px;
+    width: calc(100% - 216px);
+    height: 100px;
+    clear:both;
+}
+nav ul li {
+    display: block;
+    margin: 0;
+    padding:0;
+    list-style: none;
+    align-self: baseline;
+    background: transparent;
+    padding-top: 68px;
+}
+nav ul li a {
+    padding: 10px 20px; font-size: 16px; text-transform: uppercase;
+    background: transparent;
+    white-space: nowrap;
+    color: white;
+}
+nav ul li a.visited { color: white; }
+nav ul li a.active { background-color: #ff9900; color: #000; }
+nav ul li a:hover { text-decoration: none;  color: #ff9900; }
+nav ul li a.active:hover { color: #000; }
+
+nav ul li svg path { fill: #ffffff; }
+nav ul li a.active svg path { fill: #000000; }
+
+nav ul:after { clear: both; }
+
+nav select.map-selector { clear:both; margin: 0px; background: #ffe5c4; height: 65px; margin-top: -20px; padding: 20px 0px; font-size: 18px; }
+
+nav ul li.top-right {
+    position: relative;
+    height: 100px;
+    padding-top: 0px;
+    align-self: flex-start;
+    margin-left: 15px;
+    padding-right: 8px;
+}
+
+.tcr {
+    position: absolute;
+    z-index: 10010;
+    width: 228px;
+    height: 137px;
+    background: url(/media/thiscoinrocks.png) no-repeat 0px 0px;
+    background-size: contain;
+}
+
+@media(max-width: 640px) {
+    .only-desktop { display: none; }
+    nav select.map-selector { display: block; width: 100%; margin-top: 20px; text-align: center; }
+}
+
+/* modile-menu*/
+
+.mobile-mnu {
+    position: fixed;
+    z-index: 20000;
+    top: 0px;
+    left: 0px;
+    width: 100%
+}
+.mobile-mnu-header {
+    background: #444444;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 16px;
+}
+.mobile-mnu-item {
+    background: black;
+    display: block;
+    width: 100%;
+    padding: 15px 0px;
+    text-align: center;
+    color: white;
+    border-bottom: 1px #444 solid;
+}
+.mobile-mnu-item svg path {
+    fill: #fff;
+}
+
+.mobile-mnu-item.active {
+    color: #ff9900;
+}
+.mobile-mnu-item.active svg path {
+    fill: #ff9900;
+}
+
+.mnu-pull {
+    position: absolute;
+    z-index: 1000;
+    top: 5px;
+    right: 5px;
+}
+.mnu-pull button.btn-primary {
+    background: #ff9900;
+    outline: 0px !important;
+    border: 0px !important;
+    margin-bottom: 3px;
+    padding-bottom: 0px;
+}
