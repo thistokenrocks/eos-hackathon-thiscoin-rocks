@@ -19,13 +19,12 @@ export const getMapProperties = (state) => {
   const { match } = router;
   const mapId = 'hackaton';
   const hasMap = true;   
-  const { dim } = map;
+  const { dim, blockNumber } = map;
   const player = {};
   const operations = [];
   const rating = getRating(coins);
   const winner = getWinnerInRating(rating);
 
-  const blockNumber = 123123;
   return { 
     maps, coins, players, cells,
     rating, winner,

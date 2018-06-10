@@ -39,6 +39,13 @@ const getDefaultZoom = ({ width, height }) => {
 
 export default function (state = initialState, action) {
   switch (action.type) {
+    case 'BLOCKCHAIN_INFO': {
+      const info = action.payload;
+      return {
+        ...state,
+        blockNumber: info.head_block_num
+      };
+    }
     case 'MAP_CLOSED': {
       return {
         ...state,

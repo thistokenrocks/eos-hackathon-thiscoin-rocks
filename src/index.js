@@ -10,10 +10,19 @@ import Debounced from './services/Debounced';
 const store = configure();
 store.dispatch({ type: 'SCREEN_RESIZE' });
 
+window.eos = window.Eos();
+
 class Root extends Component {
   componentWillMount() {
-/*    const { dispatch } = store;
+    const { dispatch } = store;
 
+    setInterval( () => {
+      window.eos.getInfo({})
+        .then(response => (dispatch({ type: 'BLOCKCHAIN_INFO', payload: response })))
+        .catch(error =>  (dispatch({ type: 'BLOCKCHAIN_ERROR', payload: error })));
+    }, 500);
+
+/*
     Coins.fetch()
       .then(response => (dispatch({ type: 'LIST_RECEIVED', payload: { source: 'coins', response } })))
       .catch(error =>  (dispatch({ type: 'LIST_ERROR', payload: { source: 'coins', error }})));
