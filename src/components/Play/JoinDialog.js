@@ -52,7 +52,7 @@ export const JoinDialog = (props) => {
   const { alert, mapId, free, join, canJoin, player, operations, account, onJoin, onCancelTeam } = props;
   const doJoin = () => (onJoin({ alert, docTeam: join.selectedTeam.doc, player, free, account }));
   const isJoining = operations.filter(o => o.type === 'joining').length > 0;
-  const isBlocked = join.isBlocked || !free.length || isJoining;
+  const isBlocked = join.isBlocked || isJoining;
   if (!canJoin) return false;
   const tokenDoc = join.selectedTeam.doc;
 

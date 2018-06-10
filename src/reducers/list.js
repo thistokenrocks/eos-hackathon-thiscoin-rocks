@@ -31,7 +31,6 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case 'LIST_RECEIVED': {
       const { source, rows } = action.payload;
-      console.log('LIST_RECEIVED', rows);
       return { ...state, [source]: { loaded: true, error: null, rows } };
     }
     case 'LIST_ERROR': {

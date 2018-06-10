@@ -111,6 +111,8 @@ class thiscoin : public eosio::contract  {
         player.y = y;
         player.health = 100;
       });
+
+      bool onPlanet = cell_rec.defence > 0;
     
       // 2) on cell - put the player in the vector of cell players
       db_cells.modify(db_cells.get(cell_rec.index), _self, [&]( auto& c_rec) {
@@ -120,6 +122,7 @@ class thiscoin : public eosio::contract  {
       // 3) update coin stats
       db_coins.modify(db_coins.get(coin_rec.coin), _self, [&]( auto& c_rec) {
         c_rec.num_players++;
+        if (onPlanet) c_rec.num_planets ++;
       });
     }
 
@@ -286,14 +289,19 @@ class thiscoin : public eosio::contract  {
       
       // update attacker: he always die
       death(attacker);
+      print("!!ATTACKER_DEATH!!"); // this will be used by front end
 
       uint32_t damage = 60 / (1 + cellDest.defence);
       if (damage >= defender.health) {
         death(defender);
+        print("!!DEFENDER_DEATH!!"); // this will be used by front end
       } else {
         db_players.modify(defender, _self, [&]( auto& defender_rec) {
           defender_rec.health -= damage;
         });
+        print("!!HEALTH="); // this will be used by front end
+        print(damage);
+        print("!!");
       }
     }
 

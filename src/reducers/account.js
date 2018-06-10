@@ -6,15 +6,15 @@ const defaultStateNoNetwork = {
   accountIndex: 0,
   balance: [],
   noEOS: false,
-  canPlay: false
+  canPlay: true
 };
 
 const initialState = { ...defaultStateNoNetwork };
 
 const defineAbilityToPlay = (state) => {
   let canPlay = true;
-  if (!state.scatter) canPlay = false;
-  else if (!state.accountId) canPlay = false;
+  //if (!state.scatter) canPlay = false;
+ // else if (!state.accountId) canPlay = false;
   return { ...state, canPlay };
 };
 

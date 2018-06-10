@@ -9,7 +9,7 @@ const Cell = styled.div`
       cursor: pointer;
       height: 48px;
       line-height: 48px;
-      background: url(/media/bk-dark.png) 0px 0px;
+      background: #333;
       color: white;
       padding-left: 5px;
       white-space: nowrap;
@@ -47,25 +47,23 @@ const Cell = styled.div`
 
 export const CoinList = (props) => {
   const { join, coins, onSelectTeam } = props;
-  const isSelected = row => (join.selectedTeam.id === row.id);
+  const isSelected = row => (join.selectedTeam.coin === row.coin);
   const list = join.filter ?
-    coins.filter(t => t.doc.icon && (
-      t.name.toLowerCase().indexOf(join.filter.toLowerCase()) === 0 ||
-      t.symbol.toLowerCase().indexOf(join.filter.toLowerCase()) === 0
-    )) : coins.filter(t => t.icon)
+    coins.rows.filter(t => (
+      t.name.toLowerCase().indexOf(join.filter.toLowerCase()) === 0
+    )) : coins.rows.filter(t => t.icon)
   return (
     <div className="row">
-      {list.slice(0, 100).map(row => (
-        <div key={row.id} className="col-md-3 col-sm-4">
+      {list.map(row => (
+        <div key={row.coin} className="col-md-3 col-sm-4">
           <Cell>
             <div
               onClick={() => { onSelectTeam(row); }}
               className={`${isSelected(row) ? 'active button': 'button'}`}
             >
-
-
-{JSON.stringify(row)}
-
+              <img src={`/icons/${row.icon}`} alt='' style={{ height: 28, width: 'auto' }} />
+              &nbsp;
+              <strong>{row.name}</strong>
             </div>
           </Cell>
         </div>

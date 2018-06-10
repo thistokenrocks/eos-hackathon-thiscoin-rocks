@@ -1,5 +1,5 @@
 import { JoinDialog } from './JoinDialog';
 import { CoinList } from './CoinList';
-import { CityTitleModal } from './CityTitleModal';
+import { TitleModal } from './TitleModal';
 
-export { JoinDialog, CoinList, CityTitleModal };
+export { JoinDialog, CoinList, TitleModal };

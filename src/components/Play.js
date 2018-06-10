@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import HeaderContainer from './../containers/top/HeaderContainer';
-import { JoinDialog, CoinList, CityTitleModal } from './Play/index';
+import { JoinDialog, CoinList, TitleModal } from './Play/index';
 import { MapBackGround } from './map/index';
 import { cellToXY } from './../services/Coord';
 import TextInput from './controls/TextInput';
@@ -40,8 +40,8 @@ class Play extends Component {
 
   render() {
     const {
-      screen, dim, mapId, operations, cells, teams, icons, animation, account, player, free,
-      canPlay, coins, join, canJoin, onSelectTeam, onCancelTeam, onJoin, onMove
+      screen, dim, mapId, operations, cells, coins, account, player, free,
+      canPlay, join, canJoin, onSelectTeam, onCancelTeam, onJoin, onMove
     } = this.props;
 
     // if (!tokens || !tokens.loaded) return (<Loader />);
@@ -55,7 +55,7 @@ class Play extends Component {
     if (join.entering && join.entering.mode) return (
       <div>
         <HeaderContainer />
-        <CityTitleModal
+        <TitleModal
           height={height} title={join.entering.title} account={account}
           onSubmit={onUpdateTitle} onCancel={onTitleCancel}
         />
@@ -82,7 +82,7 @@ class Play extends Component {
                     width: dim.cellSizeX * dim.maxX,
                     height: dim.cellSizeY * dim.maxY / 2 + zoom * dim.cellSizeY * 0.5
                   }}>
-                  <MapBackGround { ...dim} cells={cells} />
+                  <MapBackGround { ...dim} cells={cells} coins={coins} />
                   <div style={{ position: 'relative' }}>
                     {/*<MapPlayerBackground {...dim} player={player} />
                     <MapPlanets {...{ dim, cells, teams, player, account, canUpdate, onUpgradeCity, onCityTitleEnter, onCityTitleCancel }} />

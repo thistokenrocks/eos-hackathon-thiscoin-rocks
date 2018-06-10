@@ -42,10 +42,10 @@ class Rating extends Component {
                         </strong>
                       </td>
                       <td style={{ textAlign: 'center' }}>
-                        {row.num_players}
+                        {row.num_players ? row.num_players : '-'}
                       </td>
                       <td style={{ textAlign: 'center' }}>
-                        {row.num_planets}
+                        {row.num_planets ? row.num_planets : '-'}
                       </td>
                     </tr>
                   );
