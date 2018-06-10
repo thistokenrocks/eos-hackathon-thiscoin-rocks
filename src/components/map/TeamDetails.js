@@ -3,32 +3,32 @@ import React from 'react';
 class TeamDetails extends React.Component {
   render() {
     const { coin, cell } = this.props;
-    if (!coin) return false;
-    return false;
-    /*
+    if (!coin || !cell.players) return false;
+    const count = cell.players.length;
+    if (!count) return false;
+    const { defence } = cell;
+    const lastPlayer = cell.players[count - 1];
+    const { health } = lastPlayer;
     return (
       <div className='team-popup'>
         <div className='team-name'>
           <strong>
-            {(token.doc.symbol !== token.key) ? <span className='symbol'>{token.doc.symbol} </span> : ''}
-            {token.key}
+            {coin.name}
           </strong>
         </div>
-        {team && team.count ? (
-          <div className='team-count'>
-            {team.count} player{team.count !== 1 ? 's' : ''}
-          </div>
-        ) : false}
-        <div className='team-health'>
-          Stamina: &nbsp; <strong>{team.health || 100}</strong> / <strong>100</strong>
+        <div className='team-count'>
+          {count} player{count !== 1 ? 's' : ''}
         </div>
-        {city ? (
+        <div className='team-health'>
+          Stamina: &nbsp; <strong>{health || 100}</strong> / <strong>100</strong>
+        </div>
+        {defence > 0 ? (
           <div className='defense'>
-            Defence: <span className='x'>x{(parseInt(city.defence, 10) + 1)}</span>
+            Defence: <span className='x'>x{(parseInt(defence, 10) + 1)}</span>
           </div>
         ) : false}
       </div>
-    );*/
+    );
   }
 }
 

@@ -34,7 +34,7 @@ class Map extends Component {
   }
 
   render() {
-    const { screen, map, mapId, dim, icons, player, players, coins, cells } = this.props;
+    const { screen, mapId, dim, players, coins, cells } = this.props;
     if (!mapId) return false;
     const height = screen.height - this.state.scrollTop;
     const { x, y } = this.props.map;

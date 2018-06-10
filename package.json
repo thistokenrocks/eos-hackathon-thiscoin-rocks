@@ -9,7 +9,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
 
-    "blockchain:start": "sudo nodeos -e -p eosio --contracts-console --http-server-address=\"0.0.0.0:8888\" --access-control-allow-origin \"*\" --access-control-allow-headers \"*\" --access-control-allow-credentials true --plugin eosio::history_api_plugin --plugin eosio::chain_api_plugin 2>&1 | grep -v produce_block",
+    "blockchain:start": "sudo nodeos -e -p eosio --contracts-console --http-server-address=\"0.0.0.0:8888\" --access-control-allow-origin \"*\" --access-control-allow-headers \"*\" --access-control-allow-credentials true --filter-on thiscoin:transfer: --plugin eosio::history_api_plugin --plugin eosio::chain_api_plugin 2>&1 | grep -v produce_block",
+
     "blockchain:erase": "sudo rm -rf ~/.local/share/eosio/nodeos",
     "blockchain": "npm-run-all blockchain:erase blockchain:start",
 
@@ -37,14 +38,22 @@
     "wallet:import": "cleos wallet import 5KcwfHbaXy9wArGg4tJgymgch1FPkaP5utRim8EhqUnB24cfG2V",
     "wallet:lock": "cleos wallet lock",
     "wallet:init": "npm-run-all wallet:unlock wallet:import wallet:list",
-    "account:create:thiscoin": "cleos create account eosio thiscoin EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
-    "account:create:publisher": "cleos create account eosio publisher EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
-    "account:create:user": "cleos create account eosio user EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
-    "account:create:tester": "cleos create account eosio tester EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
-    "account:create:player": "cleos create account eosio player EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
+    "create:thiscoin": "cleos create account eosio thiscoin EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
+    "create:publisher": "cleos create account eosio publisher EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
+    "create:user": "cleos create account eosio user EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
+    "create:tester": "cleos create account eosio tester EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
+    "create:tester2": "cleos create account eosio tester2222 EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
+    "create:tester3": "cleos create account eosio jumpingfrog EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
+    "create:tester4": "cleos create account eosio bubbleplay EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
+    "create:tester5": "cleos create account eosio freakyuser EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
+    "create:tester6": "cleos create account eosio wildlion EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
+    "create:tester7": "cleos create account eosio crazyname EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
+    "create:tester8": "cleos create account eosio uniquename EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
+    "create:tester9": "cleos create account eosio babyname EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
+    "create:player": "cleos create account eosio player EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
 
-    "account:create:eosio.token": "cleos create account eosio eosio.token EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
-    "accounts": "npm-run-all --parallel account:create:eosio.token account:create:player account:create:thiscoin account:create:tester account:create:user account:create:publisher",
+    "create:eosio.token": "cleos create account eosio eosio.token EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
+    "accounts": "npm-run-all --parallel create:eosio.token create:player create:thiscoin create:user create:publisher create:tester create:tester2 create:tester3 create:tester4 create:tester5 create:tester6  create:tester7  create:tester8  create:tester9",
     "account:list": "cleos get accounts EOS6tKYMGkxUARvuZGVu9smDkofBYKkJSx17EskzPdu8FggGtFYAn",
     "deploy": "cleos set contract thiscoin ./dapp dapp/thiscoin.wast dapp/thiscoin.abi",
       
@@ -63,18 +72,18 @@
     
     "coins": "npm-run-all --parallel action:coin:eos action:coin:btc action:coin:eth action:coin:neo action:coin:ltc",
         
-    "join:tester": "cleos transfer tester thiscoin \"0.01 EOS\" 'join,4543560,1,1' -p tester",
-    "join:publisher": "cleos transfer publisher thiscoin \"0.01 EOS\" 'join,4542291,2,1' -p publisher",
-    "join:user": "cleos transfer user thiscoin \"0.01 EOS\" 'join,4542291,2,1' -p user",
-    "join:player": "cleos transfer player thiscoin \"0.01 EOS\" 'join,4542291,2,1' -p player",
-    
+    "join:tester": "cleos transfer tester thiscoin \"0.01 EOS\" 'join,4542291,1,1' -p tester",
+    "join:publisher": "cleos transfer publisher thiscoin \"0.01 EOS\" 'join,4542291,1,1' -p publisher",
+    "join:user": "cleos transfer user thiscoin \"0.01 EOS\" 'join,4542291,1,1' -p user",
+    "join:player": "cleos transfer player thiscoin \"0.01 EOS\" 'join,4543560,2,1' -p player",
+
     "join": "npm-run-all join:tester join:user join:publisher join:player",
 
     "table:coins": "cleos get table thiscoin thiscoin coins -l 1000",
     "table:cells": "cleos get table thiscoin thiscoin cells -l 1000",
     "table:players": "cleos get table thiscoin thiscoin players -l 1000",
 
-    "first:run": "npm-run-all wallet:unlock accounts bios token credit build deploy map:init:simple3 coins",
+    "first:run": "npm-run-all wallet:unlock accounts bios token credit deploy map:init:simple3 coins join",
     "test-mocha": "npx mocha ./test --timeout 20000"
   },
   "keywords": [],

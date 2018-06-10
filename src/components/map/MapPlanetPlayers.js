@@ -9,7 +9,7 @@ export const MapPlanetPlayers = ({ coins, players, cells, dim }) => {
   const evenShiftX = 0.5 * cellSizeX;
   const styleCounter = {
     width: '100%', color: 'white', textAlign: 'center', padding: 0,
-    fontWeight: 'bold', fontSize: 16, marginTop: 20
+    fontWeight: 'bold', fontSize: 16, marginTop: 5
   };
   const cityShiftX = 138;
   const cityShiftY = 30;
@@ -34,6 +34,7 @@ export const MapPlanetPlayers = ({ coins, players, cells, dim }) => {
         health_bar.left = 54 - health_bar.width;
 
         const coin = coins.rows.find(c_rec => (c_rec.coin === player.coin));
+        console.log('coin=', coin);
         return (
           <div key={`team-at-${coord}`} style={{
             position: 'absolute',
