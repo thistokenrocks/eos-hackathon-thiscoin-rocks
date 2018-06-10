@@ -1,4 +1,4 @@
-# This Coin Rocks
+# This Coin.Rocks
 
 ### Decentralized crowd intelligence gamification of community voting
 
