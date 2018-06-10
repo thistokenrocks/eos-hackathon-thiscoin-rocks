@@ -1,22 +1,17 @@
 
-const getRoot = () => {
-  return process.env.REACT_APP_PROXY || 'http://localhost:9111/api';
-};
-
-const fetchJson = (url, options = {}) => {
-  return fetch(getRoot() + url, options).then(res => res.json());
-};
-
-const fetchBlockchainTable = table => fetchJson(`/${table}`);
+const code = 'thiscoin';
+const fetchBlockchainTable = (table, pk) => (
+  window.eos.getTableRows(true, code, code, table, pk, 1000)
+);
 
 export const Cells = {
-  fetch: () => (fetchBlockchainTable('cells'))
+  fetch: () => (fetchBlockchainTable('cells', 'index'))
 };
 export const Players = {
-  fetch: () => (fetchBlockchainTable('players'))
+  fetch: () => (fetchBlockchainTable('players', 'name'))
 };
 export const Coins = {
-  fetch: () => (fetchBlockchainTable('coins'))
+  fetch: () => (fetchBlockchainTable('coins', 'coin'))
 };
 
 

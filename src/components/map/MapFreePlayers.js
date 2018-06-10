@@ -31,6 +31,8 @@ export const MapFreePlayers = ({ coins, players, cells, dim }) => {
           return false;
         }
         const coin = coins.rows.find(c_rec => (c_rec.coin === player.coin));
+        if (!coin) return false;
+        
         const health = player.health; // player.health get player health properly team.health || 100;
         const health_bar = { width: (100 - health) * 54 / 100.0 };
         health_bar.left = 54 - health_bar.width;

@@ -34,8 +34,9 @@ export const MapPlanetPlayers = ({ coins, players, cells, dim }) => {
         health_bar.left = 54 - health_bar.width;
 
         const coin = coins.rows.find(c_rec => (c_rec.coin === player.coin));
+        if (!coin) return false;
         return (
-          <div key={`team-at-${coord}`} style={{
+          <div className='player' key={`team-at-${coord}`} style={{
             position: 'absolute',
             left: ((teamY % 2) ? evenShiftX : 0) + teamX * cellSizeX + cityShiftX,
             top: (teamY * cellSizeY / 2) + cityShiftY,

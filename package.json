@@ -83,6 +83,8 @@
     "table:cells": "cleos get table thiscoin thiscoin cells -l 1000",
     "table:players": "cleos get table thiscoin thiscoin players -l 1000",
 
+    "actions": "cleos get actions thiscoin -j",
+
     "first:run": "npm-run-all wallet:unlock accounts bios token credit deploy map:init:simple3 coins join",
     "test-mocha": "npx mocha ./test --timeout 20000"
   },

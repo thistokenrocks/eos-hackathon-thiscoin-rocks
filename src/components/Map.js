@@ -116,5 +116,3 @@ class Map extends Component {
 }
 
 export default Map;
-// <MapFreePlayers icons={icons} dim={dim} teams={map.teams || {} } />
-// <MapCityPlayers icons={icons} dim={dim} cities={map.cities || cities }  teams={map.teams || {} } />

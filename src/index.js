@@ -4,7 +4,7 @@ import App from './containers/App';
 import { ConnectedRouter } from 'react-router-redux';
 import { Provider } from 'react-redux';
 import { configure, history } from './store';
-// import { Coins, Cells, Players } from './services/ApiRequest';
+import { Coins, Cells, Players } from './services/ApiRequest';
 import Debounced from './services/Debounced';
 
 const store = configure();
@@ -22,18 +22,15 @@ class Root extends Component {
         .catch(error =>  (dispatch({ type: 'BLOCKCHAIN_ERROR', payload: error })));
     }, 500);
 
-/*
     Coins.fetch()
-      .then(response => (dispatch({ type: 'LIST_RECEIVED', payload: { source: 'coins', response } })))
+      .then(response => (dispatch({ type: 'LIST_RECEIVED', payload: { source: 'coins', rows: response.rows } })))
       .catch(error =>  (dispatch({ type: 'LIST_ERROR', payload: { source: 'coins', error }})));
-
     Cells.fetch()
-      .then(response => (dispatch({ type: 'LIST_RECEIVED', payload: { source: 'cells', response } })))
+      .then(response => (dispatch({ type: 'LIST_RECEIVED', payload: { source: 'cells', rows: response.rows } })))
       .catch(error => (dispatch({ type: 'LIST_ERROR', payload: { source: 'cells', error }})));
     Players.fetch()
-      .then(response => (dispatch({ type: 'LIST_RECEIVED', payload: { source: 'players', response } })))
+      .then(response => (dispatch({ type: 'LIST_RECEIVED', payload: { source: 'players', rows: response.rows } })))
       .catch(error =>  (dispatch({ type: 'LIST_ERROR', payload: { source: 'players', error }})));
-*/
 
   }
   render() {
